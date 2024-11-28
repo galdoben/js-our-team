@@ -36,3 +36,40 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const containerCards = document.getElementById('container-cards');
+
+
+
+
+
+function getCard (member){
+
+  const {name, role, email, img} = member;
+
+
+return `<div id="container-cards" class="container-cards">
+            <div class="team-card d-flex">
+                <img src=${img} alt=${name}>
+            
+                <div class="text">
+                    <h3>${name}</h3>
+                     <h4>${role}</h4>
+                    <span>${email}</span>`;
+}                
+
+
+
+
+function membersCards(arrayMembers){
+  let cards = "";
+for (let member of arrayMembers){
+  console.log(member)
+  
+  cards += getCard(member)
+
+}
+containerCards.innerHTML = cards
+}
+
+membersCards(teamMembers)
